@@ -1,0 +1,19 @@
+
+<div class="card" style="width: 18rem;" >
+  <img class="card-img-top" src="{{product.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{product.price}}</li>
+  </ul>
+  <input type="number" #count (change)="calc(product.price,count.value ,product)" value="{{product.count}}"/>
+
+  <div class="card-body">
+    <a routerLink="/products/{{product.id}}" class="btn btn-warning"  >Details</a>
+    <button (click)="addToFavorate.emit(product )" class="btn btn-primary"  >addToCart</button>
+  </div>
+  <!-- <div>total price :{{totalPriceForProduct}}</div> -->
+</div>
+
+

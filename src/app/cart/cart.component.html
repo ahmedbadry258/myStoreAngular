@@ -1,0 +1,20 @@
+<p>cart works!</p>
+{{fav.length}}
+<div class="row">
+  <div class="card" style="width: 18rem;" *ngFor="let product of fav" >
+    <img class="card-img-top" src="{{product.url}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{product.price}}</li>
+    </ul>
+    <div class="card-body">
+
+     <input type="number"  value="{{product.count}}" #count (change)="calc(product.price,count.value ,product)" />
+    </div>
+  </div>
+</div>
+total = {{total}}
+
+<app-user> </app-user>

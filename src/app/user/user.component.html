@@ -1,0 +1,9 @@
+<form  #form="ngForm" (ngSubmit)="submitForm()">
+  Full Name <br>
+  <input type="text" name="fullname"  required maxlength="20" minlength="3"  placeholder="Enter full name here" [(ngModel)]="fullname" /><br>
+  Address<br>
+  <input name="address" required maxlength="10"  placeholder="Enter Address here"  [(ngModel)]="address"/><br>
+  Credit Card<br>
+  <input type="number" name="credit"  required  maxlength="16"   placeholder="Enter card " [(ngModel)]="creditCard" /><br>
+  <input type="submit" value="Submit" [disabled]="form.invalid" class="btn btn-primary" />
+</form>
