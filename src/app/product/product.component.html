@@ -5,9 +5,9 @@
     <h5 class="card-title">{{product.name}}</h5>
     </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{product.price}}</li>
+    <li class="list-group-item">{{product.price |currency :'USD'}}</li>
   </ul>
-  <input type="number" #count (change)="calc(product.price,count.value ,product)" value="{{product.count}}"/>
+  <input type="number" min="1" #count (change)="calc(product.price,count.value ,product)" value="{{product.count}}"/>
 
   <div class="card-body">
     <a routerLink="/products/{{product.id}}" class="btn btn-warning"  >Details</a>

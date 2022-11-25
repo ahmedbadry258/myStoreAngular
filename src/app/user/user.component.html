@@ -1,9 +1,35 @@
+<div >
+
+
 <form  #form="ngForm" (ngSubmit)="submitForm()">
-  Full Name <br>
-  <input type="text" name="fullname"  required maxlength="20" minlength="3"  placeholder="Enter full name here" [(ngModel)]="fullname" /><br>
-  Address<br>
-  <input name="address" required maxlength="10"  placeholder="Enter Address here"  [(ngModel)]="address"/><br>
-  Credit Card<br>
-  <input type="number" name="credit"  required  maxlength="16"   placeholder="Enter card " [(ngModel)]="creditCard" /><br>
+  <div class="mb-3">
+  Full Name
+  <input type="text" #fullN="ngModel" name="fullname"  required maxlength="20" minlength="3"
+  placeholder="Enter full name here" [(ngModel)]="fullname" />
+
+  <div class="alert alert-warning " [hidden]="fullN.valid ||fullN.untouched">
+    <small [hidden]="!fullN.errors?.['required']">Full Name is Required</small>
+    <small [hidden]="!fullN.errors?.['minlength']">Full Name min length is 3 and max length is 20 </small>
+  </div>
+</div>
+<div class="mb-3">
+  Address
+  <input name="address" #addr="ngModel" required maxlength="20"  minlength="6"  placeholder="Enter Address here"  [(ngModel)]="address"/><br>
+  <div class="alert alert-warning " [hidden]="addr.valid ||addr.untouched">
+    <small [hidden]="!addr.errors?.['required']">Address is Required</small>
+    <small [hidden]="!addr.errors?.['minlength']">Address min length is 6 and max length is 20 </small>
+  </div>
+</div>
+<div class="mb-3">
+  Credit Card
+  <input type="number" #credit="ngModel" name="creditCard"  [(ngModel)]="creditCard" required  maxlength="16" minlength="16"  placeholder="Enter card "  /><br>
+  <div class="alert alert-warning " [hidden]="credit.valid ||credit.untouched">
+    <small [hidden]="!credit.errors?.['required']">Credit Card is Required</small>
+    <small [hidden]="!credit.errors?.['maxlength']">Credit Card  is 16 Number </small>
+    <small [hidden]="!credit.errors?.['minlength']">Credit Card  is 16 Number </small>
+  </div>
+</div>
   <input type="submit" value="Submit" [disabled]="form.invalid" class="btn btn-primary" />
 </form>
+
+</div>

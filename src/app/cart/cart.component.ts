@@ -19,11 +19,17 @@ this.fav.forEach(f =>{
   this.total+= f.count *f.price
 })
   }
-  calc(price: number, count: string,prd :IProduct): void {
-    this.total += price * +count;
-    // this.fav.forEach(f =>{
-    //   this.total+= f.count *f.price
-    // })
-    // console.log(`total ${this.total}`)
+  calc( count: string,prd :IProduct): void {
+    this.total=0
+    this.productService.addCount(Number(count),prd);
+     this.fav.forEach(f =>{
+       this.total+= f.count *f.price
+     })
+     console.log(`total ${this.total}`)
+  }
+  removeProduct(product :IProduct) : void{
+this.productService.removeProduct(product);
+window.alert(`you have been remove ${product.name} from your cart `);
+this.total-=product.price*product.count
   }
 }

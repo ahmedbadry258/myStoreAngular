@@ -12,7 +12,7 @@ import { IProduct } from '../models/product';
 })
 export class ProductListComponent implements OnInit {
  productList:IProduct[]=[];
- principle = 'Principle'
+ 
  @Output() addToFavorate=new EventEmitter();
 psList :any=[]
   constructor(private productsService : ProductsService) {

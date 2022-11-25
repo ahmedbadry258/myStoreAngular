@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
   fullname:string='';
   address:string='';
-  creditCard:number=0
+  creditCard:number=0;
   constructor( private router: Router) { }
 
   ngOnInit(): void {

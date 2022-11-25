@@ -11,10 +11,11 @@
     </ul>
     <div class="card-body">
 
-     <input type="number"  value="{{product.count}}" #count (change)="calc(product.price,count.value ,product)" />
+     <input type="number"  value="{{product.count}}" #count (change)="calc(count.value ,product)" min="1"/>
     </div>
+    <button (click)="removeProduct(product)" class="btn btn-warning"  >Remove</button>
   </div>
 </div>
-total = {{total}}
+total = {{total |currency :'USD'}}
 
 <app-user> </app-user>
